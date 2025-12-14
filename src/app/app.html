@@ -5,21 +5,21 @@
   <br><br><br>
   
   <div class="flex-row justify-content-center flex-wrap gap-1rem">
-    @for (item of colorPalette(); track item.variation + "_" + item.resolvedValue;) {
+    @for (item of colorPalette(); track item.variation;) {
       <div class="color-box flex-column align-items-center gap-1rem">
 
         <ng-template #hexValue>
-          @if (item.resolvedValue) {
+          @if (item.isCopied) {
             <div 
+              class="color-hex-value copied flex-row user-select-none" 
+              (click)="$event.stopPropagation()"
+            >Copied!</div>
+          } 
+          @else if(item.resolvedValue) {
+            <div
               class="color-hex-value flex-row" 
               (click)="copyColor(item.resolvedValue, $index); $event.stopPropagation()"
-            >
-              @if (item.isCopied) {
-                <div style="user-select: none;">Copied!</div>
-              } @else {
-                <div>{{ item.resolvedValue }}</div>
-              }
-            </div>
+            >{{ item.resolvedValue }}</div>
           }
         </ng-template>
         
@@ -47,7 +47,7 @@
           </div>
         }
         
-        <pre>{{item.variation}}</pre>
+        <pre class="user-select-none">{{item.variation}}</pre>
       </div>
     }
   </div>

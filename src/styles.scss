@@ -153,6 +153,10 @@ input::placeholder {
   margin-top: 2rem;
 }
 
+.user-select-none {
+  user-select: none;
+}
+
 .btn {
   font-family: monospace;
   background-color: var(--brand-color);

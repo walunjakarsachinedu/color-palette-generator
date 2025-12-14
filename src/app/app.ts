@@ -53,6 +53,8 @@ export class App implements OnInit {
   }
 
   copyColor(color: string, index: number) {
+    if(!navigator.clipboard) return;
+
     // 1. Copy to clipboard
     navigator.clipboard.writeText(color);
 
@@ -63,14 +65,14 @@ export class App implements OnInit {
       return newItems;
     });
 
-    // 3. Reset after 1 second (1000ms)
+    // 3. Reset after 1.5 second (1500ms)
     setTimeout(() => {
       this.colorPalette.update(items => {
         const newItems = [...items];
         newItems[index] = { ...newItems[index], isCopied: false };
         return newItems;
       });
-    }, 1000);
+    }, 1500);
   }
 
   private getHueFromHex(hex: string): number {
