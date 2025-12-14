@@ -1,1 +1,178 @@
-/* You can add global styles to this file, and also import other style files */
+%light-theme {
+  --text-strong: hsb(var(--brand-color-hue), 57, 24);
+  --text-weak: hsb(var(--brand-color-hue), 27, 48);
+  --stroke-strong: hsb(var(--brand-color-hue), 23, 65);
+  --stroke-weak: hsb(var(--brand-color-hue), 5, 94);
+  --fill: hsb(var(--brand-color-hue), 2, 98);
+  --bg-color: hsb(0, 0, 100);
+}
+%dark-theme {
+  --text-strong: hsb(var(--brand-color-hue), 0, 100);
+  --text-weak: hsb(var(--brand-color-hue), 5, 85);
+  --stroke-strong: hsb(var(--brand-color-hue), 10, 65);
+  --stroke-weak: hsb(var(--brand-color-hue), 15, 25);
+  --fill: hsb(var(--brand-color-hue), 20, 15);
+  --bg-color: hsb(230, 30, 10);
+}
+
+// website
+
+
+
+//chatgpt
+%light-theme {
+  --brand-color: hsl(var(--brand-color-hue), 95%, 79%);
+  --text-strong: hsl(var(--brand-color-hue), 40%, 17%);
+  --text-weak: hsl(var(--brand-color-hue), 21%, 42%);
+  --stroke-strong: hsl(var(--brand-color-hue), 18%, 57%);
+  --stroke-weak: hsl(var(--brand-color-hue), 9%, 91%);
+  --fill: hsl(var(--brand-color-hue), 4%, 97%);
+  --bg-color: hsl(0, 0%, 100%);
+}
+
+%dark-theme {
+  --brand-color: hsl(var(--brand-color-hue), 65%, 57%);
+  --text-strong: hsl(var(--brand-color-hue), 0%, 100%);
+  --text-weak: hsl(var(--brand-color-hue), 9%, 83%);
+  --stroke-strong: hsl(var(--brand-color-hue), 15%, 62%);
+  --stroke-weak: hsl(var(--brand-color-hue), 20%, 23%);
+  --fill: hsl(var(--brand-color-hue), 29%, 14%);
+  --bg-color: hsl(230, 19%, 13%);
+}
+
+// gemini
+%light-theme {
+  --brand-color: hsl(var(--brand-color-hue), 95%, 79%);
+  --text-strong:   hsl(var(--brand-color-hue), 40%, 17%);
+  --text-weak:     hsl(var(--brand-color-hue), 16%, 42%);
+  --stroke-strong: hsl(var(--brand-color-hue), 18%, 58%);
+  --stroke-weak:   hsl(var(--brand-color-hue), 28%, 92%);
+  --fill:          hsl(var(--brand-color-hue), 33%, 97%);
+  --bg-color:      hsl(0, 0%, 100%);
+}
+
+%dark-theme {
+  --brand-color: hsl(var(--brand-color-hue), 95%, 79%);
+  --text-strong:   hsl(var(--brand-color-hue), 60%, 95%);
+  --text-weak:     hsl(var(--brand-color-hue), 12%, 83%);
+  --stroke-strong: hsl(var(--brand-color-hue), 8%, 62%);
+  --stroke-weak:   hsl(var(--brand-color-hue), 8%, 23%);
+  --fill:          hsl(var(--brand-color-hue), 11%, 14%);
+  --bg-color:      hsl(230, 18%, 9%);
+}
+
+html {
+  --brand-color-hue: 230;
+
+  // making dark mode default
+  @extend %dark-theme;
+
+  // global styles
+  color: var(--text-strong);
+  background-color: var(--bg-color);
+  font-family: monospace;
+}
+
+[data-theme="dark"] {
+  @extend %dark-theme;
+}
+
+[data-theme="light"] {
+  @extend %light-theme;
+}
+
+body {
+  margin: 20px;
+}
+
+
+// theming style
+a {
+  color: var(--text-strong);
+}
+a:hover {
+  text-decoration: none;
+}
+
+hr {
+  border: .8px solid var(--stroke-weak);
+}
+
+input::placeholder {
+  color: var(--stroke-strong);
+}
+
+.tag {
+  background-color: var(--fill); 
+  padding: 2px 6px; 
+  border: 1px solid var(--stroke-weak); 
+  border-radius: 10px; 
+  font-size: small; 
+}
+
+.secondary-text {
+  color: var(--text-weak);
+  font-size: small; 
+}
+
+
+// utility classes
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+.justify-content-end {
+  justify-content: end;
+}
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.gap-1rem {
+  gap: 1rem;
+}
+
+.mt-2rem {
+  margin-top: 2rem;
+}
+
+.btn {
+  font-family: monospace;
+  background-color: var(--brand-color);
+  border-radius: 4px;
+  padding: 10px 20px;
+  box-shadow: 3px 3px var(--stroke-weak);
+  cursor: pointer;
+  transform: translateX(-3px) translateY(-3px);
+
+  outline: none;
+  border: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.btn:hover {
+  box-shadow: 4px 4px var(--stroke-weak);
+  transform: translateX(-4px) translateY(-4px);
+}
+.btn:active {
+  transform: translateX(-3px) translateY(-3px);
+  box-shadow: 3px 3px var(--stroke-weak);
+}

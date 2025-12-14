@@ -1,0 +1,1 @@
+export type User = { name: string, email: string, img: string, tag?: string };

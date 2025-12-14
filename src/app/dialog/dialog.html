@@ -1,0 +1,42 @@
+<div class="dialog">
+  <div class="dialog-cap"></div>
+  <div class="flex-row justify-content-end" >
+    <svg 
+      style="width: 1.2em; height: 1.2em;" viewBox="0 0 32 32" fill="none" 
+      xmlns="http://www.w3.org/2000/svg" 
+    >
+      <path d="M7 7L25 25" stroke="var(--text-strong)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M25 7L7 25" stroke="var(--text-strong)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+  <div style="font-size: x-large; font-weight: bold;"> Invite editors </div>
+  <div class="secondary-text"  style="margin-top: 8px; margin-bottom: 8px;">Editors can help make changes to the article</div>
+  <br>
+  <div class="flex-row input-group">
+    <input type="email" style="flex-grow: 1;" placeholder="Email">
+    <button class="input-btn">Send Invite</button>
+  </div>
+  <small style="display: block; margin-top: 6px;">
+    <a class="secondary-text" href="javascript:void()">Sharing preferences</a>
+  </small>
+  <br>
+  <br>
+  <div style="margin-top: 6px; margin-bottom: 6px;">EDITORS</div>
+  @for (item of users; track item) {
+    <hr style="margin: 12px 0px;">
+    <div class="flex-row justify-content-between">
+      <div class="flex-row align-items-center gap-1rem">
+        <img style="height: 35px; border-radius: 20px;" [src]="item.img" alt="avatar">
+        <div class="flex-column">
+          <div>{{item.name}}</div>
+          <div class="secondary-text" style="padding-top: 4px;">{{item.email}}</div>
+        </div>
+      </div>
+      @if (item.tag) {
+        <div>
+          <div class="tag">{{item.tag}}</div>
+        </div>
+      }
+    </div>
+  }
+</div>

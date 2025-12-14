@@ -1,0 +1,60 @@
+.dialog {
+  min-width: 200px;
+  border-radius: 12px;
+  padding: 30px;
+  border: 2px solid var(--stroke-weak);
+  position: relative;
+  border-top: none;
+}
+
+.dialog-cap {
+  background-color: var(--brand-color);
+  height: 8px;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
+.input-group {
+  .input-btn {
+    background-color: var(--brand-color);
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+
+    word-break: keep-all;
+    white-space: nowrap;
+
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+
+    outline: none;
+    border: none;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+  input {
+    background-color: var(--bg-color);
+    color: var(--text-strong);
+    border-radius: 4px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    outline: none;
+    border: 1px solid var(--stroke-strong);
+    border-right-width: 0px;
+    appearance: none;
+    -webkit-appearance: none;
+    padding: 4px;
+    padding-left: 10px;
+  }
+}
+
+.close-btn {
+  font-size: 26px;
+}
+
+

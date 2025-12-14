@@ -1,0 +1,30 @@
+.box {
+  height: 100px;
+  width: 100px;
+}
+
+
+.brand-color-box{
+  cursor: pointer;
+  box-shadow: 3px 3px var(--stroke-weak);
+  transform: translateX(-3px) translateY(-3px);
+  position: relative; 
+
+  &:hover {
+    box-shadow: 4px 4px var(--stroke-weak);
+    transform: translateX(-4px) translateY(-4px);
+  }
+}
+
+
+.color-input-anchor {
+  position: absolute;
+  
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  opacity: 0;
+  width: 0;   
+  height: 0;
+}
