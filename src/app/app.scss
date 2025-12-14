@@ -17,12 +17,17 @@
   }
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
 .color-hex-value {
   color: white;
   background-color: rgba(90, 90, 90, 0.45);
   cursor: pointer;
   display: none;
+  animation: fadeIn 0.2s ease-out; 
   position: absolute;
   left: 0px;
   right: 0px;
