@@ -7,7 +7,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "color-palette": {
+    "color-palette-generator": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -63,10 +63,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "color-palette:build:production"
+              "buildTarget": "color-palette-generator:build:production"
             },
             "development": {
-              "buildTarget": "color-palette:build:development"
+              "buildTarget": "color-palette-generator:build:development"
             }
           },
           "defaultConfiguration": "development"

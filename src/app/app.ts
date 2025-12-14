@@ -11,7 +11,6 @@ import { NgTemplateOutlet } from '@angular/common';
   styleUrl: './app.scss'
 })
 export class App implements OnInit {
-  protected readonly title = signal('color-palette');
   protected readonly colorPalette = signal<ColorPalette[]>([
     { color: 'var(--brand-color)', variation: "brand color" },
     { color: 'var(--text-strong)', variation: "text strong" },
