@@ -5,8 +5,23 @@
   <br><br><br>
   
   <div class="flex-row justify-content-center flex-wrap gap-1rem">
-    @for (item of colorPalette(); track item.variation) {
-      <div class="flex-column align-items-center gap-1rem">
+    @for (item of colorPalette(); track item.variation + "_" + item.resolvedValue;) {
+      <div class="color-box flex-column align-items-center gap-1rem">
+
+        <ng-template #hexValue>
+          @if (item.resolvedValue) {
+            <div 
+              class="color-hex-value flex-row" 
+              (click)="copyColor(item.resolvedValue, $index); $event.stopPropagation()"
+            >
+              @if (item.isCopied) {
+                <div style="user-select: none;">Copied!</div>
+              } @else {
+                <div>{{ item.resolvedValue }}</div>
+              }
+            </div>
+          }
+        </ng-template>
         
         @if (item.variation == "brand color") {
           <div 
@@ -20,13 +35,16 @@
               type="color"
               [value]="brandColor()"
               (input)="updateBrandColor($event)"
-              (click)="$event.stopPropagation()" 
             />
+
+            <ng-container [ngTemplateOutlet]="hexValue"></ng-container>
           </div>
         }
         
         @else {
-          <div class="box" [style.background-color]="item.color"></div>
+          <div class="box" [style.background-color]="item.color">
+            <ng-container [ngTemplateOutlet]="hexValue"></ng-container>
+          </div>
         }
         
         <pre>{{item.variation}}</pre>
